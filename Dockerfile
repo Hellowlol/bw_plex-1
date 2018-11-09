@@ -15,7 +15,8 @@ RUN yum install -y \
     pulseaudio-libs-devel \
     alsa-lib-devel \
 	ffmpeg \
-	ffmpeg-devel
+	ffmpeg-devel \
+	tkinter
  
 RUN pip install --upgrade pip && \
     pip install --upgrade setuptools && \
