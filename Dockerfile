@@ -16,4 +16,5 @@ RUN yum install -y \
 RUN pip install --upgrade pip && \
     pip install --upgrade setuptools && \
     pip install pypandoc && \
+    pip install bw_plex[all] && \
     pip install -e git+https://github.com/Hellowlol/bw_plex.git#egg=bw_plex[all]
