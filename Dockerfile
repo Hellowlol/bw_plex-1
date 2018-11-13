@@ -27,4 +27,4 @@ RUN pip2 install --upgrade pip && \
     pip2 install pypandoc && \
     pip2 install -e git+https://github.com/Hellowlol/bw_plex.git#egg=bw_plex[all]
 	
-CMD bw_plex -u ${username} -p ${password} -s ${server} -t ${token} watch
+CMD ["sh", "-c", "bw_plex -u ${username} -p ${password} -s ${server} -t ${token} watch"]
