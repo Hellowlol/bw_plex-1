@@ -23,8 +23,8 @@ RUN yum install -y centos-release-scl \
     alsa-lib-devel \
     ffmpeg \
     ffmpeg-devel \
-    tkinter
-RUN pip2 install --upgrade pip setuptools pypandoc && \
+    tkinter && \
+    pip2 install --upgrade pip setuptools pypandoc && \
     pip2 install -e git+https://github.com/Hellowlol/bw_plex.git#egg=bw_plex[all]
 	
 CMD ["sh", "-c", "bw_plex -u ${username} -p ${password} -s ${server} -t ${token} watch"]
