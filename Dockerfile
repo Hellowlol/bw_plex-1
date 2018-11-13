@@ -5,12 +5,12 @@ ENV username="default" \
     server="Server" \
     token="changetoken"
     
-RUN rpm --import http://li.nux.ro/download/nux/RPM-GPG-KEY-nux.ro
-RUN rpm -Uvh http://li.nux.ro/download/nux/dextop/el7/x86_64/nux-dextop-release-0-5.el7.nux.noarch.rpm
-RUN rpm -Uvh https://centos7.iuscommunity.org/ius-release.rpm
 RUN yum install -y centos-release-scl \
-    epel-release \
-    python2-pip \
+    epel-release && \
+    rpm --import http://li.nux.ro/download/nux/RPM-GPG-KEY-nux.ro && \
+    rpm -Uvh https://centos7.iuscommunity.org/ius-release.rpm && \
+    rpm -Uvh http://li.nux.ro/download/nux/dextop/el7/x86_64/nux-dextop-release-0-5.el7.nux.noarch.rpm && \
+    yum --enablerepo=ius-archive install -y python2-pip \
     python27 \
     git \
     libXrender \
@@ -22,8 +22,8 @@ RUN yum install -y centos-release-scl \
     pulseaudio-libs-devel \
     alsa-lib-devel \
     ffmpeg \
-    ffmpeg-devel && \
-    yum --enablerepo=ius-archive install -y tkinter
+    ffmpeg-devel \
+    tkinter
 RUN pip2 install --upgrade pip setuptools pypandoc && \
     pip2 install -e git+https://github.com/Hellowlol/bw_plex.git#egg=bw_plex[all]
 	
