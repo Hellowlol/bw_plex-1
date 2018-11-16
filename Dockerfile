@@ -25,8 +25,6 @@ RUN yum install -y centos-release-scl \
     ffmpeg-devel \
     tkinter && \
     pip2 install --upgrade pip setuptools pypandoc && \
-    pip2 install -e git+https://github.com/Hellowlol/bw_plex.git#egg=bw_plex[all] && \
-    pip2 install --upgrade --force-reinstall plexapi && \
-    sed -i '/websocket-client==0.47/c\websocket-client>=0.47' /src/bw-plex/requirements.txt
-	
+    pip2 install -e git+https://github.com/McCloud/bw_plex-1.git#egg=bw_plex[all]
+    
 CMD ["sh", "-c", "bw_plex -u ${username} -p ${password} -s ${server} -t ${token} watch"]
