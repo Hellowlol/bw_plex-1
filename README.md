@@ -1,6 +1,8 @@
 # bw_plex
 run bw_plex in a centos container
 
-To run it, pass the docker the following environment variables: username (your plex username), password (your plex password), server (plex server name to monitor), and token (your plex API token).
+To run it, pass the docker the following environment variables: url (your plex server ip/port), and token (your plex API token).
 
-Run it manually with: docker run -e username=yourplexusername password=yourplexpassword server=yourplexserver token=yourplexapitoken mccloud/bw_plex
+Run it manually with: docker run -e --url="http://192.168.1.112:32400" token=yourplexapitoken mccloud/bw_plex
+
+Obviously, under url you'll place your server IP/port.  
