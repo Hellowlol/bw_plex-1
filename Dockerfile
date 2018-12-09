@@ -1,7 +1,8 @@
 FROM centos
 
 ENV url="default" \
-    token="changetoken"
+    token="changetoken" \
+    default_folder=""
     
 RUN yum install -y centos-release-scl \
     epel-release && \
@@ -25,4 +26,4 @@ RUN yum install -y centos-release-scl \
     pip2 install --upgrade pip setuptools pypandoc && \
     pip2 install -e git+https://github.com/hellowlol/bw_plex.git#egg=bw_plex[all]
     
-CMD ["sh", "-c", "bw_plex --url ${url} -t ${token} watch"]
+CMD ["sh", "-c", "bw_plex --url ${url} -t ${token} -df ${default_folder} watch"]
